@@ -1,0 +1,42 @@
+.header{
+    text-align: center;
+    line-height: 32px;
+    height: 32px;
+}
+.ellipsis{
+    font-size: 16px;
+    color: white;
+}
+.profile-number{
+    background: #fe5400;
+    border-top: 1px solid white;
+    height: 80px;
+    line-height: 36px;
+    font-size: 20px;
+    margin-top: 32px;
+}
+.info_data_link{
+    margin-left: 1px;
+    border-right: 1px solid;
+    border-bottom: 1px solid;
+    font-size: 25px;
+    text-align: center;
+    width: 33%;
+    float: left;
+}
+.info_data_top span{
+    font-size: 30px;
+    font-weight: 700;
+}
+.yuan{
+    color: #fe5400;
+}
+.num{
+    color: red;
+}
+.minute{
+    color: seagreen;
+}
+.info_data_list a:nth-child(3){
+    border-right: transparent;
+}
