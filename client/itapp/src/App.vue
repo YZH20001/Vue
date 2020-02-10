@@ -7,15 +7,21 @@
 
 <script>
 import FooterGuide from "./components/FooterGuide/FooterGuide";
+//import { reqPwdLogin } from "./api";
 export default {
+  // async mounted() {
+  //   //测试
+  //   const result = await reqPwdLogin();
+  //   console.log(result);
+  // },
   components: {
-      FooterGuide
+    FooterGuide
   }
 };
 </script>
 
 <style>
-#app{
+#app {
   width: 100%;
   height: 100%;
 }
