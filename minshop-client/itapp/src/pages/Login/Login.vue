@@ -24,7 +24,7 @@
               <input type="tel" maxlength="8" placeholder="验证码" v-model="code" />
             </section>
             <section class="login_hint">
-              温馨提示：未注册Mint外卖帐号的手机号，登录时将自动注册，且代表已同意
+              温馨提示：未注册Mint帐号的手机号，登录时将自动注册，且代表已同意
               <a href="javascript:;">《用户服务协议》</a>
             </section>
           </div>
@@ -77,7 +77,7 @@ export default {
     return {
       loginWay: false, // true代表短信登陆, false代表密码
       phone: "", // 手机号
-      computeTime: 0,
+      computeTime: 0,//计时时间
       showPwd: false, // 是否显示密码
       pwd: "",
       name: "", // 用户名
@@ -173,7 +173,7 @@ export default {
         // 将user保存到vuex的state
         this.$store.dispatch("recordUser", user);
         // 去个人中心界面
-        this.$router.replace("/profile");
+        this.$router.replace("/preson");
       } else {
         // 显示新的图片验证码
         this.getCaptcha();

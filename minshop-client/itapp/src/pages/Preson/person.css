@@ -1,10 +1,10 @@
 .header{
     text-align: center;
-    line-height: 32px;
-    height: 32px;
+    line-height: 45px;
+    height: 45px;
 }
-.ellipsis{
-    font-size: 16px;
+.header_title .ellipsis{
+    font-size: 20px;
     color: white;
 }
 .profile-number{
@@ -13,7 +13,7 @@
     height: 80px;
     line-height: 36px;
     font-size: 20px;
-    margin-top: 32px;
+    margin-top: 45px;
 }
 .info_data_link{
     margin-left: 1px;

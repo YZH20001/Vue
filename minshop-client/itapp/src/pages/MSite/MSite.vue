@@ -4,13 +4,16 @@
     <header>
       <div class="head-wrap">
         <div class="head-top">
-          <HeaderTop title="云南省曲靖市">
-            <span class="header_search" slot="left">
+          <HeaderTop :title="address.name">
+            <router-link class="header_search" slot="left" to="/serch">
               <i class="iconfont icon-search1"></i>
-            </span>
-            <span class="header_login" slot="right">
-              <router-link to="/login" class="header_login_text">登陆|注册</router-link>
-            </span>
+            </router-link>
+            <router-link class="header_login" slot="right" :to="userInfo._id ? '/userInfo':'/login'">
+              <span class="header_login_text" v-if="!userInfo._id">登录|注册</span>
+              <span class="header_login_text" v-else>
+                <i class="iconfont icon-person"></i>
+              </span>
+            </router-link>
           </HeaderTop>
         </div>
       </div>
@@ -64,479 +67,137 @@
         <!-- Add Pagination -->
         <div class="swiper-pagination"></div>
       </div>
-
-      <!--导航区域-->
-      <section class="nav">
-        <div class="content vertical-view">
-          <div class="nav-content horizontal-view">
-            <a href="#">
-              <img src="./images/nav1.png" />
-              <span>天猫</span>
-            </a>
-            <a href="#">
-              <img src="./images/nav2.png" />
-              <span>聚划算</span>
-            </a>
-            <a href="#">
-              <img src="./images/nav3.png" />
-              <span>到家</span>
-            </a>
-            <a href="#">
-              <img src="./images/nav4.png" />
-              <span>外卖</span>
-            </a>
-          </div>
-          <div class="nav-bottom nav-content horizontal-view">
-            <a href="#">
-              <img src="./images/nav5.png" />
-              <span>充值</span>
-            </a>
-            <a href="#">
-              <img src="./images/nav6.png" />
-              <span>阿里旅行</span>
-            </a>
-            <a href="#">
-              <img src="./images/nav7.png" />
-              <span>领金币</span>
-            </a>
-            <a href="#">
-              <img src="./images/nav8.png" />
-              <span>分类</span>
-            </a>
-          </div>
-        </div>
-      </section>
-      <!--淘宝头条-->
-      <section class="tb-hot">
-        <div class="content hot">
-          <div class="hot-content">
-            <div class="item horizontal-view">
-              <span></span>
-              <span>最新</span>
-              <span>Supreme 2016秋冬配件系列完整一览</span>
-            </div>
-            <div class="item horizontal-view">
-              <span></span>
-              <span>最新</span>
-              <span>Supreme 2016秋冬配件系列完整一览</span>
-            </div>
-            <div class="item horizontal-view">
-              <span></span>
-              <span>最新</span>
-              <span>Supreme 2016秋冬配件系列完整一览</span>
-            </div>
-            <div class="item horizontal-view">
-              <span></span>
-              <span>最新</span>
-              <span>Supreme 2016秋冬配件系列完整一览</span>
-            </div>
-            <div class="item horizontal-view">
-              <span></span>
-              <span>最新</span>
-              <span>Supreme 2016秋冬配件系列完整一览</span>
-            </div>
-            <div class="item horizontal-view">
-              <span></span>
-              <span>最新</span>
-              <span>Supreme 2016秋冬配件系列完整一览</span>
-            </div>
-          </div>
-        </div>
-        <div class="content gray-line"></div>
-      </section>
-      <!--海抢购-->
-      <section class="rushbuy">
-        <div class="content horizontal-view">
-          <div class="rushbuy-left rightLine">
-            <div class="rushbuy-bg"></div>
-            <div class="rushbuy-time">
-              <span class="timeNum">00</span>
-              <span>:</span>
-              <span class="timeNum">00</span>
-              <span>:</span>
-              <span class="timeNum">00</span>
-            </div>
-          </div>
-          <div class="rushbuy-right vertical-view">
-            <div class="top horizontal-view">
-              <div></div>
-              <div></div>
-            </div>
-            <div class="bottom horizontal-view topLine">
-              <div class="rightLine"></div>
-              <div></div>
-            </div>
-          </div>
-        </div>
-      </section>
-      <!--超实惠-->
-      <section class="boon">
-        <div class="content vertical-view">
-          <div class="title boon-title horizontal-view">
-            <div></div>
-            <div></div>
-            <div>超实惠</div>
-            <div></div>
-          </div>
-          <div class="boon-top horizontal-view">
-            <div class="rightLine"></div>
-            <div class="rightLine"></div>
-            <div class="rightLine"></div>
-            <div></div>
-          </div>
-          <div class="boon-bottom horizontal-view topLine">
-            <div class="rightLine"></div>
-            <div class="rightLine"></div>
-            <div class="rightLine"></div>
-            <div></div>
-          </div>
-        </div>
-      </section>
-      <!--好品质-->
-      <section class="quality">
-        <div class="content vertical-view">
-          <div class="title quality-title horizontal-view">
-            <div></div>
-            <div></div>
-            <div>好品质</div>
-            <div></div>
-          </div>
-          <div class="quality-top horizontal-view">
-            <div class="rightLine"></div>
-            <div></div>
-          </div>
-          <div class="quality-bottom horizontal-view topLine">
-            <div class="rightLine"></div>
-            <div class="rightLine"></div>
-            <div class="rightLine"></div>
-            <div class="rightLine"></div>
-            <div></div>
-          </div>
-        </div>
-      </section>
-      <!--有特色-->
-      <section class="feature">
-        <div class="content vertical-view">
-          <div class="title feature-title horizontal-view">
-            <div></div>
-            <div></div>
-            <div>有特色</div>
-            <div></div>
-          </div>
-          <div class="feature-top horizontal-view">
-            <div class="rightLine"></div>
-            <div class="rightLine"></div>
-            <div class="rightLine"></div>
-            <div></div>
-          </div>
-          <div class="feature-bottom horizontal-view topLine">
-            <div class="rightLine"></div>
-            <div class="rightLine"></div>
-            <div class="rightLine"></div>
-            <div></div>
-          </div>
-        </div>
-      </section>
-      <!-- 广告位置 -->
-      <div class="banner2">
-        <div></div>
-      </div>
-      <!--热门市场-->
-      <section class="market">
-        <div class="content vertical-view">
-          <div class="title market-title horizontal-view">
-            <div></div>
-            <div></div>
-            <div>热门市场</div>
-            <div></div>
-            <div>更多</div>
-            <div></div>
-          </div>
-          <div class="market-top horizontal-view">
-            <div class="rightLine">
-              <p>品质穿搭</p>
-              <p>质造品味</p>
-              <p></p>
-            </div>
-            <div>
-              <p>品质穿搭</p>
-              <p>质造品味</p>
-              <p></p>
-            </div>
-          </div>
-          <div class="market-center horizontal-view topLine">
-            <div>
-              <p>品质穿搭</p>
-              <p>质造品味</p>
-              <p></p>
-            </div>
-            <div class="rightLine">
-              <p>品质穿搭</p>
-              <p>质造品味</p>
-              <p></p>
-            </div>
-            <div class="rightLine">
-              <p>品质穿搭</p>
-              <p>质造品味</p>
-              <p></p>
-            </div>
-            <div>
-              <p>品质穿搭</p>
-              <p>质造品味</p>
-              <p></p>
-            </div>
-          </div>
-          <div class="market-bottom horizontal-view topLine">
-            <div>
-              <p>品质穿搭</p>
-              <p>质造品味</p>
-              <p></p>
-            </div>
-            <div class="rightLine">
-              <p>品质穿搭</p>
-              <p>质造品味</p>
-              <p></p>
-            </div>
-            <div class="rightLine">
-              <p>品质穿搭</p>
-              <p>质造品味</p>
-              <p></p>
-            </div>
-            <div>
-              <p>品质穿搭</p>
-              <p>质造品味</p>
-              <p></p>
-            </div>
-          </div>
-        </div>
-      </section>
-      <!-- 广告位置 -->
-      <div class="banner2 banner3">
-        <div></div>
-      </div>
-      <!-- 每日好店 -->
-      <section class="shop">
-        <div class="content vertical-view">
-          <div class="shop-title horizontal-view">
-            <div></div>
-            <div>每日好店</div>
-            <div class="horizontal-view">
-              <p>更新50个好店</p>
-              <p></p>
-            </div>
-          </div>
-          <div class="shop-pro">
-            <ul class="horizontal-view">
-              <li class="horizontal-view">
-                <div class="shop-left vertical-view">
-                  <div class="top horizontal-view">
-                    <div></div>
-                    <div class="vertical-view">
-                      <p></p>
-                      <p></p>
-                    </div>
-                  </div>
-                  <div class="txt">今日推荐-1天3波</div>
-                </div>
-                <div class="shop-right vertical-view">
-                  <div class="top horizontal-view">
-                    <div></div>
-                    <div class="vertical-view">
-                      <p></p>
-                      <p></p>
-                    </div>
-                  </div>
-                  <div class="txt">吃吃吃</div>
-                </div>
-              </li>
-              <li class="horizontal-view">
-                <div class="shop-left vertical-view">
-                  <div class="top horizontal-view">
-                    <div></div>
-                    <div class="vertical-view">
-                      <p></p>
-                      <p></p>
-                    </div>
-                  </div>
-                  <div class="txt">今日推荐-1天3波</div>
-                </div>
-                <div class="shop-right vertical-view">
-                  <div class="top horizontal-view">
-                    <div></div>
-                    <div class="vertical-view">
-                      <p></p>
-                      <p></p>
-                    </div>
-                  </div>
-                  <div class="txt">吃吃吃</div>
-                </div>
-              </li>
-            </ul>
-          </div>
-          <div class="shop-icon">
-            <span class="active"></span>
-            <span></span>
-          </div>
-        </div>
-      </section>
-      <!--猜你喜欢-->
-      <section class="guessYou">
-        <div class="content">
-          <div class="guess-title horizontal-view">
-            <div></div>
-            <div>猜你喜欢</div>
-            <div></div>
-          </div>
-          <div class="guess-pro">
-            <div class="guess-pro-con fl">
-              <div></div>
-              <div>[为你推荐]出口原单法式乡村纯实木双层床美式复古高低子母床儿童上下床直销</div>
-              <div>￥4980.0</div>
-            </div>
-            <div class="guess-pro-con fr">
-              <div></div>
-              <div>[为你推荐]北欧风格家具 实木真皮小户型1.8米韩式双人婚床简约软床皮艺</div>
-              <div>￥4980.0</div>
-            </div>
-            <div class="guess-pro-con fl">
-              <div></div>
-              <div>[为你推荐]出口原单法式乡村纯实木双层床美式复古高低子母床儿童上下床直销</div>
-              <div>￥4980.0</div>
-            </div>
-            <div class="guess-pro-con fr">
-              <div></div>
-              <div>[为你推荐]北欧风格家具 实木真皮小户型1.8米韩式双人婚床简约软床皮艺</div>
-              <div>￥4980.0</div>
-            </div>
-            <div class="guess-pro-con fl">
-              <div></div>
-              <div>[为你推荐]出口原单法式乡村纯实木双层床美式复古高低子母床儿童上下床直销</div>
-              <div>￥4980.0</div>
-            </div>
-            <div class="guess-pro-con fr">
-              <div></div>
-              <div>[为你推荐]北欧风格家具 实木真皮小户型1.8米韩式双人婚床简约软床皮艺</div>
-              <div>￥4980.0</div>
-            </div>
-            <div class="guess-pro-con fl">
-              <div></div>
-              <div>[为你推荐]出口原单法式乡村纯实木双层床美式复古高低子母床儿童上下床直销</div>
-              <div>￥4980.0</div>
-            </div>
-            <div class="guess-pro-con fr">
-              <div></div>
-              <div>[为你推荐]北欧风格家具 实木真皮小户型1.8米韩式双人婚床简约软床皮艺</div>
-              <div>￥4980.0</div>
-            </div>
-            <div class="guess-pro-con fl">
-              <div></div>
-              <div>[为你推荐]出口原单法式乡村纯实木双层床美式复古高低子母床儿童上下床直销</div>
-              <div>￥4980.0</div>
-            </div>
-            <div class="guess-pro-con fr">
-              <div></div>
-              <div>[为你推荐]北欧风格家具 实木真皮小户型1.8米韩式双人婚床简约软床皮艺</div>
-              <div>￥4980.0</div>
-            </div>
-            <div class="guess-pro-con fl">
-              <div></div>
-              <div>[为你推荐]出口原单法式乡村纯实木双层床美式复古高低子母床儿童上下床直销</div>
-              <div>￥4980.0</div>
-            </div>
-            <div class="guess-pro-con fr">
-              <div></div>
-              <div>[为你推荐]北欧风格家具 实木真皮小户型1.8米韩式双人婚床简约软床皮艺</div>
-              <div>￥4980.0</div>
-            </div>
-            <div class="guess-pro-con fl">
-              <div></div>
-              <div>[为你推荐]出口原单法式乡村纯实木双层床美式复古高低子母床儿童上下床直销</div>
-              <div>￥4980.0</div>
-            </div>
-            <div class="guess-pro-con fr">
-              <div></div>
-              <div>[为你推荐]北欧风格家具 实木真皮小户型1.8米韩式双人婚床简约软床皮艺</div>
-              <div>￥4980.0</div>
-            </div>
-            <div class="guess-pro-con fl">
-              <div></div>
-              <div>[为你推荐]出口原单法式乡村纯实木双层床美式复古高低子母床儿童上下床直销</div>
-              <div>￥4980.0</div>
-            </div>
-            <div class="guess-pro-con fr">
-              <div></div>
-              <div>[为你推荐]北欧风格家具 实木真皮小户型1.8米韩式双人婚床简约软床皮艺</div>
-              <div>￥4980.0</div>
-            </div>
-          </div>
-        </div>
-      </section>
-      <footer>
-        <div class="link horizontal-view">
-          <a href="#">登录</a>
-          <a href="#">注册</a>
-          <a href="#">电脑版</a>
-          <a href="#">用户反馈</a>
-        </div>
-        <div class="copyright">
-          2016 浙 B2-20080224
-          <a>服务中心</a>
-        </div>
-      </footer>
     </div>
-    <div class="fixNav horizontal-view">
-      <a href="#">
-        <span class="iconfont">&#x3478;</span>
-        <span>首页</span>
-      </a>
-      <a href="#">
-        <span class="iconfont">&#xe6ad;</span>
-        <span>物流</span>
-      </a>
-      <a href="#">
-        <span class="iconfont">&#xe66d;</span>
-        <span>购物车</span>
-      </a>
-      <a href="#">
-        <span class="iconfont">&#xe60c;</span>
-        <span>我的淘宝</span>
-      </a>
-      <a href="#">
-        <span class="iconfont">&#xf0013;</span>
-        <span>更多</span>
-      </a>
-    </div>
-    <div class="goTop">
-      <span class="iconfont">&#xe629;</span>
-      顶部
+    <!--首页导航轮播图-->
+    <nav class="msite_nav">
+      <!-- swiper的容器div -->
+      <div class="swiper-container" v-if="categorys.length">
+        <!-- swiper的包裹层div -->
+        <div class="swiper-wrapper">
+          <!-- swiper的轮播div -->
+          <div class="swiper-slide" v-for="(categorys,index) in categorysArr" :key="index">
+            <a
+              href="javascript:"
+              class="link_to_food"
+              v-for="(data,index) in categorys"
+              :key="index"
+            >
+              <div class="food_container">
+                <img :src="baseImageUrl+data.image_url" />
+              </div>
+              <span>{{data.title}}</span>
+            </a>
+          </div>
+        </div>
+        <!-- swiper轮播图圆点 -->
+        <div class="swiper-pagination"></div>
+      </div>
+      <img src="./images/msite_back.svg" alt="back" v-else />
+    </nav>
+    <!--首页附近商家列表-->
+    <div class="msite_shop_list">
+      <div class="shop_header">
+        <i class="iconfont icon-xuanxiang"></i>
+        <span class="shop_header_title">附近商家</span>
+      </div>
+      <ShopList></ShopList>
     </div>
   </div>
 </template>
 <script>
 import HeaderTop from "../../components/HeaderTop/HeaderTop";
+import ShopList from "../../components/ShopList/ShopList";
 import "./msite.css";
 import Swiper from "swiper";
+// 同时引入swiper的css文件
 import "swiper/css/swiper.min.css";
+// 利用mapState语法糖去读取state对象
+import { mapState } from "vuex";
 export default {
-  components: {
-    HeaderTop
+  data() {
+    return {
+      baseImageUrl: "https://fuss10.elemecdn.com"
+    };
   },
+  components: {
+    HeaderTop,
+    ShopList
+  },
+  computed: {
+    ...mapState(["address", "categorys","userInfo"]),
+    /*
+    根据categorys一维数组生成一个2维数组
+    小数组中的元素个数最大是8
+    */
+    categorysArr() {
+      // 1.先从当前组件中得到所有食品分类的一维数组
+      const { categorys } = this;
+      // 2.准备一个空的二维数组--categorysArr
+      const arr = [];
+      // for (let i = 0, len = categorys.length; i < len; i += 8) {
+      //   arr.push(categorys.slice(i, i + 8))
+      // }
+      // 3.准备一个小数组--pages(最大长度为8)
+      let minArr = [];
+      // 4.遍历categorys得到处理后的二维数组catagorysArr
+      categorys.forEach(data => {
+        // 如果当前小数组(pages)已经满了, 创建一个新的
+        if (minArr.length === 8) {
+          minArr = [];
+        }
+        // 如果minArr是空的, 将小数组(pages)保存到大数组(categorysArr)中
+        if (minArr.length === 0) {
+          arr.push(minArr);
+        }
+        // 将当前分类信息保存到小数组(pages)中
+        minArr.push(data);
+      });
+      return arr;
+    }
+  },
+  watch: {
+    categorys(value) {
+      // categorys数组中有数据了 但界面还没有异步更新
+      // 使用setTimeout可以实现效果, 但是时机不准确
+      /*
+      setTimeout(() => {
+        // 创建一个Swiper实例对象来实现轮播
+        new Swiper('.swiper-container', {
+          autoplay: true,
+          // 如果需要分页器
+          pagination: {
+            el: '.swiper-pagination',
+            clickable: true
+          }
+        })
+      }, 100) */
+
+      // 在修改数据之后立即使用它，然后等待 DOM 更新。
+      this.$nextTick(() => {
+        // 一旦完成界面更新, 立即执行回调
+        //创建一个swiper对象实现轮播
+        new Swiper(".swiper-container", {
+          loop: true,
+          pagination: {
+            el: ".swiper-pagination"
+          },
+          slidesPerView: "auto",
+          // loopedSlides: _this.bannerList.length,
+          speed: 300,
+          autoplay: {
+            disableOnInteraction: false, //手动滑动之后不打断播放
+            delay: 2000
+          },
+          observer: true //监听，当改变swiper的样式（例如隐藏/显示）或者修改swiper的子元素时，自动初始化swiper。
+        });
+      });
+    }
+  },
+  // 注意要在页面加载完成之后（mounted）再进行swiper的初始化
   mounted() {
-    //创建一个swiper对象实现轮播
-    new Swiper(".swiper-container", {
-      loop: true,
-      pagination: {
-        el: ".swiper-pagination"
-      },
-      slidesPerView: "auto",
-      // loopedSlides: _this.bannerList.length,
-      speed: 300,
-      autoplay: {
-        disableOnInteraction: false, //手动滑动之后不打断播放
-        delay: 2000
-      },
-      observer: true //监听，当改变swiper的样式（例如隐藏/显示）或者修改swiper的子元素时，自动初始化swiper。
-    });
+    // 忘记方法名时查看Action.js
+    this.$store.dispatch("getCategorys");
+    this.$store.dispatch("getShops");
   }
 };
 (function(win) {
@@ -575,13 +236,147 @@ export default {
   changeRem();
 })(window);
 </script>
-<style>
+<style lang="stylus" rel="stylesheet/stylus">
 .msite {
   width: 100%;
   margin-top: -6px;
 }
-.header_login_text{
+
+.header_login_text {
   color: white;
-  
 }
-</style>>
+
+@import '../../common/stylus/mixins.styl';
+
+.msite { // 首页
+  width: 100%;
+
+  .header {
+    position: fixed;
+    z-index: 100;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 45px;
+
+    .header_search {
+      position: absolute;
+      left: 15px;
+      top: 50%;
+      transform: translateY(-50%);
+      width: 10%;
+      height: 50%;
+
+      .icon-sousuo {
+        font-size: 25px;
+        color: #fff;
+      }
+    }
+
+    .header_title {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      width: 50%;
+      color: #fff;
+      text-align: center;
+
+      .header_title_text {
+        font-size: 20px;
+        color: #fff;
+        display: block;
+      }
+    }
+
+    .header_login {
+      font-size: 14px;
+      color: #fff;
+      position: absolute;
+      right: 15px;
+      top: 50%;
+      transform: translateY(-50%);
+
+      .header_login_text {
+        color: #fff;
+      }
+    }
+  }
+
+  .msite_nav {
+    bottom-border-1px(#e4e4e4);
+    height: 200px;
+    background: #fff;
+
+    .swiper-container {
+      width: 100%;
+      height: 100%;
+
+      .swiper-wrapper {
+        width: 100%;
+        height: 100%;
+
+        .swiper-slide {
+          display: flex;
+          justify-content: center;
+          align-items: flex-start;
+          flex-wrap: wrap;
+
+          .link_to_food {
+            width: 25%;
+
+            .food_container {
+              display: block;
+              width: 100%;
+              text-align: center;
+              padding-bottom: 10px;
+              font-size: 0;
+
+              img {
+                display: inline-block;
+                width: 50px;
+                height: 50px;
+              }
+            }
+
+            span {
+              display: block;
+              width: 100%;
+              text-align: center;
+              font-size: 13px;
+              color: #666;
+            }
+          }
+        }
+      }
+
+      .swiper-pagination {
+        >span.swiper-pagination-bullet-active {
+          background: #02a774;
+        }
+      }
+    }
+  }
+
+  .msite_shop_list {
+    top-border-1px(#e4e4e4);
+    margin-top: 10px;
+    background: #fff;
+
+    .shop_header {
+      padding: 10px 10px 0;
+
+      .shop_icon {
+        margin-left: 5px;
+        color: #999;
+      }
+
+      .shop_header_title {
+        color: #999;
+        font-size: 14px;
+        line-height: 20px;
+      }
+    }
+  }
+}
+</style>

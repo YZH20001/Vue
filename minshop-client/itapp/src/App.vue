@@ -7,13 +7,20 @@
 
 <script>
 import FooterGuide from "./components/FooterGuide/FooterGuide";
+import { mapState, mapActions } from "vuex";
 //import { reqPwdLogin } from "./api";
 export default {
-  // async mounted() {
-  //   //测试
-  //   const result = await reqPwdLogin();
-  //   console.log(result);
-  // },
+  mounted() {
+    //   //测试
+    //   const result = await reqPwdLogin();
+    //   console.log(result);
+    //this.$store.dispatch('getAddress')
+    this.getUserInfo();
+    this.getAddress();
+  },
+  methods: {
+    ...mapActions(["getAddress", "getUserInfo"])
+  },
   components: {
     FooterGuide
   }
